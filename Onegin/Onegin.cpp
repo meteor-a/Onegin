@@ -1,4 +1,5 @@
 ﻿#include <stdio.h>
+#include <stdlib.h>
 #include <wchar.h>
 #include <Windows.h>
 
@@ -14,12 +15,12 @@ int main() {
         return CODE_ERROR;
     }
 
-    wchar_t* arrayOfArraysOfChars[10]; // array to hold multiple single arrays of characters
+    wchar_t** arr[100];
+    *arr = (wchar_t**)malloc(100);
     int nLines = 0;
 
     const int BuffSize = 1000;
     char str[BuffSize] = {};
-    
 
     while (!feof(file_text)) {
         wchar_t res[BuffSize] = {};
@@ -34,8 +35,9 @@ int main() {
                 res[wcslen(res) - 1] = '\000';
             }
         }
-
-        arrayOfArraysOfChars[nLines] = res;
+        
+      //  **arr[nLines] = (wchar_t)malloc(100);
+        **arr[nLines] = *res;
         ++nLines;
     }
 

@@ -21,6 +21,15 @@ int main() {
     while (!feof(file_text)) {
         fgets(str, BuffSize, file_text);
         ::MultiByteToWideChar(CP_UTF8, 0, str, BuffSize, res, BuffSize);
+
+        for (int ii = wcslen(res) - 1; ii >= 0; --ii) {
+            if (res[ii] == ' ' || res[ii] == '\n') {
+                for (int jj = ii; jj < wcslen(res) - 1; ++jj) {
+                    res[jj] = res[jj + 1];
+                }
+                res[wcslen(res) - 1] = '\000';
+            }
+        }
     }
 
     fclose(file_text);

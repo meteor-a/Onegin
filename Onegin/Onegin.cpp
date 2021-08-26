@@ -14,11 +14,15 @@ int main() {
         return CODE_ERROR;
     }
 
+    wchar_t* arrayOfArraysOfChars[10]; // array to hold multiple single arrays of characters
+    int nLines = 0;
+
     const int BuffSize = 1000;
     char str[BuffSize] = {};
-    wchar_t res[BuffSize] = {};
+    
 
     while (!feof(file_text)) {
+        wchar_t res[BuffSize] = {};
         fgets(str, BuffSize, file_text);
         ::MultiByteToWideChar(CP_UTF8, 0, str, BuffSize, res, BuffSize);
 
@@ -30,6 +34,9 @@ int main() {
                 res[wcslen(res) - 1] = '\000';
             }
         }
+
+        arrayOfArraysOfChars[nLines] = res;
+        ++nLines;
     }
 
     fclose(file_text);

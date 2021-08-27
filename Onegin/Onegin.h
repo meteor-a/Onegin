@@ -13,6 +13,5 @@ char const* const Path = "text_on.txt";
 
 int OutputSortStrings(wchar_t**, int);
 int InputText(wchar_t**, int*);
-int DeleteExtraSymb(int);
 int SortStrings(wchar_t**, int);
 

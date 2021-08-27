@@ -73,10 +73,6 @@ int InputText(wchar_t** rr, int *nLines) {
     return OK_RESULT;
 }
 
-int DeleteExtraSymb(int nLines) {
-    return OK_RESULT;
-}
-
 int SortStrings(wchar_t** rr, int nLines) {
     wchar_t tmp[BuffSize] = {};
     for (int ii = 0; ii < nLines; ++ii) {

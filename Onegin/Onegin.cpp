@@ -1,5 +1,18 @@
 ﻿#include "Onegin.h"
 
+int main() {
+    wchar_t** text_str = nullptr;
+    int nLines = 0;
+
+    text_str = InputStrings(text_str, &nLines);
+
+    SortStrings(text_str, nLines);
+
+    OutputSortStrings(text_str, nLines);
+
+    return OK_RESULT;
+}
+
 void swap_str(wchar_t** first, wchar_t** second) {
     wchar_t* tmp = nullptr;
     tmp = *first;
@@ -7,23 +20,40 @@ void swap_str(wchar_t** first, wchar_t** second) {
     *second = tmp;
 }
 
-int main() {
+int OutputSortStrings(wchar_t** text_str, int nLines) {
     setlocale(LC_CTYPE, "rus");
 
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    wchar_t** text_str;
-    int nLines = 0;
+    printf("Sort by code symbol:\n");
+    for (int ii = 0; ii < nLines; ++ii) {
+        wprintf(L"%i: %s\n", ii + 1, *(text_str + ii));
+    }
 
+    return OK_RESULT;
+}
+
+int SortStrings(wchar_t** text_str, int nLines) {
+    for (int ii = 0; ii < nLines; ++ii) {
+        for (int jj = ii + 1; jj < nLines; ++jj) {
+            if (wcscmp(*(text_str + ii), *(text_str + jj)) > 0) {
+                swap_str((text_str + ii), (text_str + jj));
+            }
+        }
+    }
+    
+    return OK_RESULT;
+}
+
+wchar_t** InputStrings(wchar_t** text_str, int* nLines) {
     FILE* file_text;
     file_text = fopen("text_on.txt", "r");
-
-    // Проверка открытия файла
     if (file_text == NULL) {
-        printf("error\n");
-        return -1;
-    } else {
+        printf("error, while opening file\n");
+        return nullptr;
+    }
+    else {
         printf("complete\n");
     }
 
@@ -55,26 +85,13 @@ int main() {
         }
 
         if (wcslen(res) != 0) {
-            *text_str = (wchar_t*)malloc(sizeof(res));
-            *(text_str + nLines) = res;
-            ++nLines;
+            *(text_str + *nLines) = (wchar_t*)malloc(sizeof(res));
+            *(text_str + *nLines) = res;
+            ++(*nLines);
         }
     }
 
     fclose(file_text);
 
-    for (int ii = 0; ii < nLines; ++ii) {
-        for (int jj = ii + 1; jj < nLines; ++jj) {
-            if (wcscmp(*(text_str + ii), *(text_str + jj)) > 0) {
-                swap_str((text_str + ii), (text_str + jj));
-            }
-        }
-    }
-
-    printf("Sort by code symbol:\n");
-    for (int ii = 0; ii < nLines; ++ii) {
-        wprintf(L"%i: %s\n", ii + 1, *(text_str + ii));
-    }
-
-    return 1;
+    return text_str;
 }

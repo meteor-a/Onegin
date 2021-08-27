@@ -5,11 +5,10 @@
 
 const int CODE_ERROR = -1;
 const int BuffSize = 9000;
+char const* const Path = "text_on.txt";
 
 
 int main() {
-    char const* const Path = "text_on.txt";
-
     FILE* file_text = nullptr;
     file_text = fopen(Path, "rt");
     if (!file_text) {
@@ -19,7 +18,6 @@ int main() {
 
     wchar_t* rr[BuffSize];
     int nLines = 0;
-
 
     char str[BuffSize] = {};
     wchar_t* res[1];
@@ -38,11 +36,23 @@ int main() {
                 (res[0])[wcslen(res[0]) - 1] = '\000';
             }
         }
-        
+
         rr[nLines] = new wchar_t[BuffSize];
         rr[nLines] = res[0];
         ++nLines;
     }
 
     fclose(file_text);
+
+    wchar_t tmp[BuffSize] = {};
+    for (int ii = 0; ii < nLines; ++ii) {
+        for (int jj = ii + 1; jj < nLines; ++jj) {
+            if (wcscmp(rr[ii], rr[jj]) > 0) {
+                wcscpy(tmp, rr[ii]);
+                wcscpy(rr[ii], rr[jj]);
+                wcscpy(rr[jj], tmp);
+            }
+        }
+    }
+    int dd = 0;
 }

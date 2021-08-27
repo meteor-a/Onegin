@@ -4,7 +4,7 @@
 #include <Windows.h>
 
 const int CODE_ERROR = -1;
-const int BuffSize = 100;
+const int BuffSize = 9000;
 
 
 int main() {
@@ -18,30 +18,29 @@ int main() {
     }
 
     wchar_t* rr[BuffSize];
-    rr[0] = new wchar_t [BuffSize];
-    rr[1] = new wchar_t[BuffSize];
     int nLines = 0;
 
 
     char str[BuffSize] = {};
-    wchar_t res[BuffSize];
+    wchar_t* res[1];
 
     while (!feof(file_text)) {
-        *res = (wchar_t)malloc(BuffSize);
+        res[0] = new wchar_t[BuffSize];
 
         fgets(str, BuffSize, file_text);
-        ::MultiByteToWideChar(CP_UTF8, 0, str, BuffSize, res, BuffSize);
+        ::MultiByteToWideChar(CP_UTF8, 0, str, BuffSize, res[0], BuffSize);
 
-        for (int ii = wcslen(res) - 1; ii >= 0; --ii) {
-            if (res[ii] == ' ' || res[ii] == '\n') {
-                for (int jj = ii; jj < wcslen(res) - 1; ++jj) {
-                    res[jj] = res[jj + 1];
+        for (int ii = wcslen(res[0]) - 1; ii >= 0; --ii) {
+            if ((res[0])[ii] == ' ' || (res[0])[ii] == '\n' || (res[0])[ii] == '\t') {
+                for (int jj = ii; jj < wcslen(res[0]) - 1; ++jj) {
+                    (res[0])[jj] = (res[0])[jj + 1];
                 }
-                res[wcslen(res) - 1] = '\000';
+                (res[0])[wcslen(res[0]) - 1] = '\000';
             }
         }
         
-        rr[nLines] = res;
+        rr[nLines] = new wchar_t[BuffSize];
+        rr[nLines] = res[0];
         ++nLines;
     }
 

@@ -1,29 +1,34 @@
 ﻿#include "Onegin.h"
 
 int main() {
-    wchar_t* text_str[SIZE_TEXT];
+    wchar_t* text_str[FILE_SIZE];
     int nLines = 0;
-
+    
     InputText(text_str, &nLines);
-
+    
     QuickSort(text_str, 0, nLines - 1);
 
     //SortStrings(text_str, nLines);
 
     OutputSortStrings(text_str, nLines);
-
+    
     return OK_RESULT;
 }
 
 void swap_str(wchar_t** first, wchar_t** second) {
+    assert(first != nullptr);
+    assert(second != nullptr);
+
     wchar_t* tmp = nullptr;
     tmp = *first;
     *first = *second;
     *second = tmp;
 }
 
-
 int InputText(wchar_t** text_str, int* nLines) {
+    assert(*text_str != nullptr);
+    assert(nLines != nullptr);
+
     FILE* file_text = nullptr;
     file_text = fopen(PATH_FILE_TEXT, "rt");
     if (!file_text) {
@@ -67,6 +72,8 @@ int InputText(wchar_t** text_str, int* nLines) {
 }
 
 int SortStrings(wchar_t** text_str, int nLines) {
+    assert(text_str != nullptr);
+
     for (int ii = 0; ii < nLines; ++ii) {
         for (int jj = ii + 1; jj < nLines; ++jj) {
             if (wcscmp(text_str[ii], text_str[jj]) > 0) {
@@ -79,6 +86,8 @@ int SortStrings(wchar_t** text_str, int nLines) {
 }
 
 int Partition(wchar_t** text_str, int low, int high) {
+    assert(text_str != nullptr);
+
     int pivot = 0;
     int index = 0;
     index = low;
@@ -96,6 +105,8 @@ int Partition(wchar_t** text_str, int low, int high) {
 }
 
 int RandomPivotPartition(wchar_t** text_str, int low, int high) {
+    assert(text_str != nullptr);
+
     int pvt = 0;
     int n = 0;
     int temp = 0;
@@ -107,6 +118,8 @@ int RandomPivotPartition(wchar_t** text_str, int low, int high) {
 }
 
 int QuickSort(wchar_t** text_str, int low, int high) {
+    assert(text_str != nullptr);
+
     int pindex = 0;
 
     if (low < high) {
@@ -119,6 +132,8 @@ int QuickSort(wchar_t** text_str, int low, int high) {
 }
 
 int OutputSortStrings(wchar_t** text_str, int nLines) {
+    assert(text_str != nullptr);
+
     setlocale(LC_CTYPE, "rus");
 
     SetConsoleCP(1251);

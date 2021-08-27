@@ -10,10 +10,10 @@ char const* const Path = "text_on.txt";
 
 
 int main() {
-    setlocale(LC_CTYPE, "rus"); // вызов функции настройки локали
+    setlocale(LC_CTYPE, "rus");
 
-    SetConsoleCP(1251);// установка кодовой страницы win-cp 1251 в поток ввода
-    SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
 
     FILE* file_text = nullptr;
     file_text = fopen(Path, "rt");

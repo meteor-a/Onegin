@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <wchar.h>
 #include <Windows.h>
+#include <locale.h>
 
 const int CODE_ERROR = -1;
 const int BuffSize = 9000;
@@ -9,6 +10,11 @@ char const* const Path = "text_on.txt";
 
 
 int main() {
+    setlocale(LC_CTYPE, "rus"); // вызов функции настройки локали
+
+    SetConsoleCP(1251);// установка кодовой страницы win-cp 1251 в поток ввода
+    SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
+
     FILE* file_text = nullptr;
     file_text = fopen(Path, "rt");
     if (!file_text) {
@@ -27,19 +33,21 @@ int main() {
 
         fgets(str, BuffSize, file_text);
         ::MultiByteToWideChar(CP_UTF8, 0, str, BuffSize, res[0], BuffSize);
-
-        for (int ii = wcslen(res[0]) - 1; ii >= 0; --ii) {
-            if ((res[0])[ii] == ' ' || (res[0])[ii] == '\n' || (res[0])[ii] == '\t') {
-                for (int jj = ii; jj < wcslen(res[0]) - 1; ++jj) {
+        for (int ii = 0; ii < wcslen(res[0]); ++ii) {
+            if ((res[0])[ii] == ' ' || (res[0])[ii] == '\n' || (res[0])[ii] == '\t' || (res[0])[ii] == '\r' || (res[0])[ii] == 160) {
+                for (int jj = ii; jj < wcslen(res[0]); ++jj) {
                     (res[0])[jj] = (res[0])[jj + 1];
                 }
                 (res[0])[wcslen(res[0]) - 1] = '\000';
+                --ii;
             }
         }
 
-        rr[nLines] = new wchar_t[BuffSize];
-        rr[nLines] = res[0];
-        ++nLines;
+        if (wcslen(res[0]) != 0) {
+            rr[nLines] = new wchar_t[BuffSize];
+            rr[nLines] = res[0];
+            ++nLines;
+        }
     }
 
     fclose(file_text);
@@ -54,5 +62,9 @@ int main() {
             }
         }
     }
-    int dd = 0;
+
+    printf("Sort by code symbol:\n");
+    for (int ii = 0; ii < nLines; ++ii) {
+        wprintf(L"%i: %s\n", ii + 1, rr[ii]);
+    }
 }

@@ -8,19 +8,20 @@ int main() {
 
     QuickSort(text_str, 0, nLines - 1);
 
-    // SortStrings(text_str, nLines);
+    //SortStrings(text_str, nLines);
 
     OutputSortStrings(text_str, nLines);
 
     return OK_RESULT;
 }
 
-void swap_str(wchar_t* first, wchar_t* second) {
-    wchar_t tmp[BUFFER_SIZE] = {};
-    wcscpy(tmp, first);
-    wcscpy(first, second);
-    wcscpy(second, tmp);
+void swap_str(wchar_t** first, wchar_t** second) {
+    wchar_t* tmp = nullptr;
+    tmp = *first;
+    *first = *second;
+    *second = tmp;
 }
+
 
 int InputText(wchar_t** text_str, int* nLines) {
     FILE* file_text = nullptr;
@@ -69,7 +70,7 @@ int SortStrings(wchar_t** text_str, int nLines) {
     for (int ii = 0; ii < nLines; ++ii) {
         for (int jj = ii + 1; jj < nLines; ++jj) {
             if (wcscmp(text_str[ii], text_str[jj]) > 0) {
-                swap_str(text_str[jj], text_str[ii]);
+                swap_str(&text_str[jj], &text_str[ii]);
             }
         }
     }
@@ -85,11 +86,11 @@ int Partition(wchar_t** text_str, int low, int high) {
 
     for (int ii = low; ii < high; ++ii) {
         if (wcscmp(text_str[ii], text_str[pivot]) < 0) {
-            swap_str(text_str[ii], text_str[index]);
+            swap_str(&text_str[ii], &text_str[index]);
             ++index;
         }
     }
-    swap_str(text_str[pivot], text_str[index]);
+    swap_str(&text_str[pivot], &text_str[index]);
 
     return index;
 }
@@ -100,7 +101,7 @@ int RandomPivotPartition(wchar_t** text_str, int low, int high) {
     int temp = 0;
     n = rand();
     pvt = low + n % (high - low + 1);
-    swap_str(text_str[high], text_str[pvt]);
+    swap_str(&text_str[high], &text_str[pvt]);
 
     return Partition(text_str, low, high);
 }

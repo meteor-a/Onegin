@@ -31,10 +31,10 @@ int InputText(wchar_t** rr, int* nLines) {
     }
 
     char str[BuffSize] = {};
-    wchar_t* res[1];
+    wchar_t* res[BuffSize];
 
     while (!feof(file_text)) {
-        res[0] = new wchar_t[BuffSize];
+        *res = (wchar_t*)calloc(BuffSize, sizeof(wchar_t));
 
         fgets(str, BuffSize, file_text);
         ::MultiByteToWideChar(CP_UTF8, 0, str, BuffSize, res[0], BuffSize);
@@ -53,7 +53,7 @@ int InputText(wchar_t** rr, int* nLines) {
         }
 
         if (wcslen(res[0]) != 0) {
-            *rr = new wchar_t[BuffSize];
+            *rr = (wchar_t*)malloc(sizeof(res[0]));
             *rr = res[0];
             rr = rr + 1;
             ++(*nLines);
@@ -113,7 +113,6 @@ int QuickSort(wchar_t** a, int low, int high) {
 
     return 0;
 }
-
 
 int OutputSortStrings(wchar_t** rr, int nLines) {
     setlocale(LC_CTYPE, "rus");

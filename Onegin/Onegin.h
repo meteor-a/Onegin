@@ -7,7 +7,7 @@
 
 const int CODE_ERROR = -1;
 const int OK_RESULT = 1;
-const int BuffSize = 250;
+const int BuffSize = 3000;
 const int SizeText = 10000;
 char const* const Path = "text_on.txt";
 

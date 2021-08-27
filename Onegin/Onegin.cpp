@@ -4,6 +4,8 @@
 #include <Windows.h>
 
 const int CODE_ERROR = -1;
+const int BuffSize = 100;
+
 
 int main() {
     char const* const Path = "text_on.txt";
@@ -15,15 +17,18 @@ int main() {
         return CODE_ERROR;
     }
 
-    wchar_t** arr[100];
-    *arr = (wchar_t**)malloc(100);
+    wchar_t* rr[BuffSize];
+    rr[0] = new wchar_t [BuffSize];
+    rr[1] = new wchar_t[BuffSize];
     int nLines = 0;
 
-    const int BuffSize = 1000;
+
     char str[BuffSize] = {};
+    wchar_t res[BuffSize];
 
     while (!feof(file_text)) {
-        wchar_t res[BuffSize] = {};
+        *res = (wchar_t)malloc(BuffSize);
+
         fgets(str, BuffSize, file_text);
         ::MultiByteToWideChar(CP_UTF8, 0, str, BuffSize, res, BuffSize);
 
@@ -36,8 +41,7 @@ int main() {
             }
         }
         
-      //  **arr[nLines] = (wchar_t)malloc(100);
-        **arr[nLines] = *res;
+        rr[nLines] = res;
         ++nLines;
     }
 

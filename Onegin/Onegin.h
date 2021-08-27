@@ -7,9 +7,9 @@
 
 const int CODE_ERROR = -1;
 const int OK_RESULT = 1;
-const int BuffSize = 3000;
-const int SizeText = 10000;
-char const* const Path = "text_on.txt";
+const int BUFFER_SIZE = 3000;
+const int SIZE_TEXT = 10000;
+char const* const PATH_FILE_TEXT = "text_on.txt";
 
 int OutputSortStrings(wchar_t**, int);
 int InputText(wchar_t**, int*);

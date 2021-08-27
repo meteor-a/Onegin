@@ -1,43 +1,43 @@
 ﻿#include "Onegin.h"
 
 int main() {
-    wchar_t* rr[SizeText];
+    wchar_t* text_str[SIZE_TEXT];
     int nLines = 0;
 
-    InputText(rr, &nLines);
+    InputText(text_str, &nLines);
 
-    QuickSort(rr, 0, nLines - 1);
+    QuickSort(text_str, 0, nLines - 1);
 
-    // SortStrings(rr, nLines);
+    // SortStrings(text_str, nLines);
 
-    OutputSortStrings(rr, nLines);
+    OutputSortStrings(text_str, nLines);
 
     return OK_RESULT;
 }
 
 void swap_str(wchar_t* first, wchar_t* second) {
-    wchar_t tmp[BuffSize] = {};
+    wchar_t tmp[BUFFER_SIZE] = {};
     wcscpy(tmp, first);
     wcscpy(first, second);
     wcscpy(second, tmp);
 }
 
-int InputText(wchar_t** rr, int* nLines) {
+int InputText(wchar_t** text_str, int* nLines) {
     FILE* file_text = nullptr;
-    file_text = fopen(Path, "rt");
+    file_text = fopen(PATH_FILE_TEXT, "rt");
     if (!file_text) {
         printf("Error open text file!\n");
         return CODE_ERROR;
     }
 
-    char str[BuffSize] = {};
-    wchar_t* res[BuffSize];
+    char str[BUFFER_SIZE] = {};
+    wchar_t* res[BUFFER_SIZE];
 
     while (!feof(file_text)) {
-        *res = (wchar_t*)calloc(BuffSize, sizeof(wchar_t));
+        *res = (wchar_t*)calloc(BUFFER_SIZE, sizeof(wchar_t));
 
-        fgets(str, BuffSize, file_text);
-        ::MultiByteToWideChar(CP_UTF8, 0, str, BuffSize, res[0], BuffSize);
+        fgets(str, BUFFER_SIZE, file_text);
+        ::MultiByteToWideChar(CP_UTF8, 0, str, BUFFER_SIZE, res[0], BUFFER_SIZE);
 
         for (int ii = 0; ii < wcslen(res[0]); ++ii) {
             if ((res[0])[ii] == ' ' || (res[0])[ii] == '\n' || (res[0])[ii] == '\t' ||
@@ -53,9 +53,9 @@ int InputText(wchar_t** rr, int* nLines) {
         }
 
         if (wcslen(res[0]) != 0) {
-            *rr = (wchar_t*)malloc(sizeof(res[0]));
-            *rr = res[0];
-            rr = rr + 1;
+            *text_str = (wchar_t*)malloc(sizeof(res[0]));
+            *text_str = res[0];
+            text_str = text_str + 1;
             ++(*nLines);
         }
     }
@@ -65,11 +65,11 @@ int InputText(wchar_t** rr, int* nLines) {
     return OK_RESULT;
 }
 
-int SortStrings(wchar_t** rr, int nLines) {
+int SortStrings(wchar_t** text_str, int nLines) {
     for (int ii = 0; ii < nLines; ++ii) {
         for (int jj = ii + 1; jj < nLines; ++jj) {
-            if (wcscmp(rr[ii], rr[jj]) > 0) {
-                swap_str(rr[jj], rr[ii]);
+            if (wcscmp(text_str[ii], text_str[jj]) > 0) {
+                swap_str(text_str[jj], text_str[ii]);
             }
         }
     }
@@ -77,44 +77,47 @@ int SortStrings(wchar_t** rr, int nLines) {
     return OK_RESULT;
 }
 
-int Partition(wchar_t** a, int low, int high) {
-    int pivot, index, i;
+int Partition(wchar_t** text_str, int low, int high) {
+    int pivot = 0;
+    int index = 0;
     index = low;
     pivot = high;
 
-    for (i = low; i < high; i++) {
-        if (wcscmp(a[i], a[pivot]) < 0) {
-            swap_str(a[i], a[index]);
+    for (int ii = low; ii < high; ++ii) {
+        if (wcscmp(text_str[ii], text_str[pivot]) < 0) {
+            swap_str(text_str[ii], text_str[index]);
             ++index;
         }
     }
-    swap_str(a[pivot], a[index]);
+    swap_str(text_str[pivot], text_str[index]);
 
     return index;
 }
 
-int RandomPivotPartition(wchar_t** a, int low, int high) {
-    int pvt, n, temp;
+int RandomPivotPartition(wchar_t** text_str, int low, int high) {
+    int pvt = 0;
+    int n = 0;
+    int temp = 0;
     n = rand();
     pvt = low + n % (high - low + 1);
-    swap_str(a[high], a[pvt]);
+    swap_str(text_str[high], text_str[pvt]);
 
-    return Partition(a, low, high);
+    return Partition(text_str, low, high);
 }
 
-int QuickSort(wchar_t** a, int low, int high) {
+int QuickSort(wchar_t** text_str, int low, int high) {
     int pindex = 0;
 
     if (low < high) {
-        pindex = RandomPivotPartition(a, low, high);
-        QuickSort(a, low, pindex - 1);
-        QuickSort(a, pindex + 1, high);
+        pindex = RandomPivotPartition(text_str, low, high);
+        QuickSort(text_str, low, pindex - 1);
+        QuickSort(text_str, pindex + 1, high);
     }
 
     return 0;
 }
 
-int OutputSortStrings(wchar_t** rr, int nLines) {
+int OutputSortStrings(wchar_t** text_str, int nLines) {
     setlocale(LC_CTYPE, "rus");
 
     SetConsoleCP(1251);
@@ -122,9 +125,9 @@ int OutputSortStrings(wchar_t** rr, int nLines) {
 
     printf("Sort by code symbol:\n");
     for (int ii = 0; ii < nLines; ++ii) {
-        wprintf(L"%i: %s\n", ii + 1, *rr);
+        wprintf(L"%i: %s\n", ii + 1, *text_str);
         if (ii + 1 != nLines) {
-            rr = rr + 1;
+            text_str = text_str + 1;
         }
     }
 

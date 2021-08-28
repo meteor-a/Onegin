@@ -25,40 +25,18 @@ void swap_str(wchar_t** first, wchar_t** second) {
 
 int InputText(wchar_t** text_str, int* nLines) {
     FILE* file_text = nullptr;
-    file_text = fopen(PATH_FILE_TEXT, "rt");
+    file_text = fopen(PATH_FILE_TEXT, "r");
     if (!file_text) {
         printf("Error open text file!\n");
         return CODE_ERROR;
     }
 
     char str[BUFFER_SIZE] = {};
-    wchar_t* res[BUFFER_SIZE];
+    wchar_t res;
 
     while (!feof(file_text)) {
-        *res = (wchar_t*)calloc(BUFFER_SIZE, sizeof(wchar_t));
-
-        fgets(str, BUFFER_SIZE, file_text);
-        ::MultiByteToWideChar(CP_UTF8, 0, str, BUFFER_SIZE, res[0], BUFFER_SIZE);
-
-        for (int ii = 0; ii < wcslen(res[0]); ++ii) {
-            if ((res[0])[ii] == ' ' || (res[0])[ii] == '\n' || (res[0])[ii] == '\t' ||
-                (res[0])[ii] == '\r' || (res[0])[ii] == 160) { // 160 - code of Non-breaking space
-
-                for (int jj = ii; jj < wcslen(res[0]) - 1; ++jj) {
-                    (res[0])[jj] = (res[0])[jj + 1];
-                }
-                (res[0])[wcslen(res[0]) - 1] = '\000';
-
-                --ii;
-            }
-        }
-
-        if (wcslen(res[0]) != 0) {
-            *text_str = (wchar_t*)malloc(sizeof(res[0]));
-            *text_str = res[0];
-            text_str = text_str + 1;
-            ++(*nLines);
-        }
+        res = getc(file_text);
+        printf("%s", &res);
     }
 
     fclose(file_text);

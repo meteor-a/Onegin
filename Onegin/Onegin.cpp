@@ -10,7 +10,7 @@ int main() {
 
     SortStrings(text_str, nLines);
 
-    qsort(text_str, nLines, sizeof(char*), cmp);
+   // qsort(text_str, nLines, sizeof(char*), cmp);
 
     OutputSortStrings(text_str, nLines);
 
@@ -19,9 +19,9 @@ int main() {
     return OK_RESULT;
 }
 
-int cmp(const void* left, const void* right) {
-    const char* leftStr = *(const char**)left;
-}
+//int cmp(const void* left, const void* right) {
+//    const char* leftStr = *(const char**)left;
+//}
 
 void swap_str(wchar_t** first, wchar_t** second) {
     assert(first != nullptr);

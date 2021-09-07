@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Onegin.cpp" />
+    <ClCompile Include="RandomGeneratorText.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Onegin.h" />

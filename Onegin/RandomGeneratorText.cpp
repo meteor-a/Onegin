@@ -17,21 +17,35 @@ int RandGenStr() {
         return CODE_ERROR;
     }
 
-    qsort(text, nLines, sizeof(wchar_t*), comparator);
+    printf("Alphabet \n");
 
+    qsort(text, nLines, sizeof(wchar_t*), comparator_alphabet);
     OutputConsole(text, nLines);
-    OutputFile(text, nLines);
+    OutputFile(text, nLines, PATH_FILE_OUTPUT_ALPHABET);
+
+    printf("\n\n\n\nBack alphabet \n");
+
+    qsort(text, nLines, sizeof(wchar_t*), comparator_back_alphabet);
+    OutputConsole(text, nLines);
+    OutputFile(text, nLines, PATH_FILE_OUTPUT_BACK_ALPHABET);
 
     free(text);
 
     return OK_RESULT;
 }
 
-int comparator(const void* left, const void* right) {
+int comparator_alphabet(const void* left, const void* right) {
     const wchar_t* first_str = *(const wchar_t**)left;
     const wchar_t* second_str = *(const wchar_t**)right;
 
     return wcscmp(first_str, second_str);
+}
+
+int comparator_back_alphabet(const void* left, const void* right) {
+    const wchar_t* first_str = *(const wchar_t**)left;
+    const wchar_t* second_str = *(const wchar_t**)right;
+
+    return (wcscmp(first_str, second_str) * (-1));
 }
 
 int getFileSize(FILE* file) {
@@ -115,9 +129,9 @@ void OutputConsole(wchar_t** text, long long nLines) {
     }
 }
 
-void OutputFile(wchar_t** text, long long nLines) {
+void OutputFile(wchar_t** text, long long nLines, const char* file_name) {
     FILE* file = nullptr;
-    file = OpenFile(PATH_FILE_OUTPUT, "w");
+    file = OpenFile(file_name, "w");
     assert(file != nullptr);
 
     for (int num_str = 0; num_str < nLines; ++num_str) {

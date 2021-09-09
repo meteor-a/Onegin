@@ -1,6 +1,8 @@
 #include "SortGenText.h"
 
 int SortGenText() {
+    SetOutputSettings();
+
     FILE* file_text = OpenFile(PATH_FILE_ONEGIN, "r");
     if (file_text == nullptr) {
         return CODE_ERROR;
@@ -15,8 +17,7 @@ int SortGenText() {
     int res_input = InputText(&text_analyze, file_text);
     SeparateText(&text_analyze);
 
-    StringStruct* tmp_ = text_analyze.string_text;
-    qsort(tmp_, text_analyze.num_strings, sizeof(StringStruct), comparator_start_str);
+    qsort(text_analyze.string_text, text_analyze.num_strings, sizeof(StringStruct), comparator_start_str);
 
     Output(&text_analyze);
 
@@ -64,7 +65,6 @@ int comparator_start_str(const void* left, const void* right) {
 }
 
 int Output(TextStruct* text_file) {
-    SetOutputSettings();
     OutputConsole(text_file);
     int res = OutputFile(text_file, PATH_FILE_OUTPUT_START_STR);
     

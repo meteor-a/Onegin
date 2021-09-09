@@ -139,11 +139,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FileWork.cpp" />
     <ClCompile Include="Onegin.cpp" />
-    <ClCompile Include="RandomGeneratorText.cpp" />
+    <ClCompile Include="SortGenText.cpp" />
+    <ClCompile Include="StringStruct.cpp" />
+    <ClCompile Include="TextStruct.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Onegin.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="FileWork.h" />
+    <ClInclude Include="SortGenText.h" />
+    <ClInclude Include="StringStruct.h" />
+    <ClInclude Include="TextStruct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

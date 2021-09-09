@@ -1,11 +1,6 @@
-﻿#include "Onegin.h"
+﻿#include "SortGenText.h"
 
 int main() {
-    int result = RandGenStr();
-    if (result == 1) {
-        return OK_RESULT;
-    }
-    else {
-        return CODE_ERROR;
-    }
+    int result = SortGenText();
+    return result;
 }

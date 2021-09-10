@@ -5,6 +5,7 @@
 #include "TextStruct.h"
 #include "FileWork.h"
 #include "Constants.h"
+#include "QSort.h"
 
 int SortGenText();
 int InputText(TextStruct*, FILE* open_file);

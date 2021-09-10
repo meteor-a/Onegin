@@ -1,7 +1,10 @@
 #pragma once
 #include <wchar.h> 
+#include "Constants.h"
 
 struct StringStruct {
     wchar_t* str = nullptr;
-    size_t length = 0;
+    long long length = 0;
 };
+
+int swap_str(StringStruct*, StringStruct*);

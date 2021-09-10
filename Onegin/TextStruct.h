@@ -6,7 +6,7 @@
 struct TextStruct {
     StringStruct text;
     StringStruct* string_text = nullptr;
-    long long num_strings = 1;
+    size_t num_strings = 1;
 };
 
 

@@ -4,12 +4,14 @@ int SortGenText() {
     SetOutputSettings();
 
     FILE* file_text = OpenFile(PATH_FILE_ONEGIN, "r");
+    assert(file_text != nullptr);
     if (file_text == nullptr) {
         return CODE_ERROR;
     }
 
     TextStruct text_analyze;
     text_analyze.text.str = (wchar_t*)calloc(getFileSize(file_text), sizeof(wchar_t));
+    assert(text_analyze.text.str != nullptr);
     if (text_analyze.text.str == nullptr) {
         return CODE_ERROR;
     }
@@ -17,7 +19,9 @@ int SortGenText() {
     int res_input = InputText(&text_analyze, file_text);
     SeparateText(&text_analyze);
 
-    qsort(text_analyze.string_text, text_analyze.num_strings, sizeof(StringStruct), comparator);
+    quickSortR(text_analyze.string_text, 0, text_analyze.num_strings - 1, comparator_wcscmp);
+    quickSortR(text_analyze.string_text, 0, text_analyze.num_strings - 1, comparator_rev_wcscmp);
+    //qsort(text_analyze.string_text, text_analyze.num_strings, sizeof(StringStruct), comparator);
 
     Output(&text_analyze);
 
@@ -27,6 +31,8 @@ int SortGenText() {
 }
 
 int InputText(TextStruct* text_file, FILE* open_file) {
+    assert(text_file != nullptr);
+    assert(open_file != nullptr);
     if (text_file == nullptr || open_file == nullptr) {
         return CODE_ERROR;
     }
@@ -75,6 +81,7 @@ void OutputConsole(TextStruct* text_file) {
 int OutputFile(TextStruct* text_file, const char* file_name) {
     FILE* file = nullptr;
     file = OpenFile(file_name, "w");
+    assert(file != nullptr);
     if (file == nullptr) {
         return CODE_ERROR;
     }

@@ -1,6 +1,7 @@
 #include "TextStruct.h"
 
 int DestructorText(TextStruct* text) {
+    assert(text != nullptr);
     if (text == nullptr) {
         return CODE_ERROR;
     }
@@ -12,6 +13,7 @@ int DestructorText(TextStruct* text) {
 }
 
 int SeparateText(TextStruct* text) {
+    assert(text != nullptr);
     if (text == nullptr) {
         return CODE_ERROR;
     }
@@ -19,11 +21,12 @@ int SeparateText(TextStruct* text) {
     size_t cur_size_str = (*text).text.length;
 
     (*text).string_text = (StringStruct*)calloc(cur_size_str, sizeof(StringStruct));
+    assert((*text).string_text != nullptr);
     if ((*text).string_text == nullptr) {
         return CODE_ERROR;
     }
 
-    long long n_line = 0;
+    size_t n_line = 0;
     size_t cur_num_symb = 0;
     for (size_t num_symb = 0; num_symb < cur_size_str; ++num_symb) {
         if ((*text).text.str[num_symb] == L'\0' || (*text).text.str[num_symb] == 65535) {

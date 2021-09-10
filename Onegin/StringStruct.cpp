@@ -1,6 +1,12 @@
 #include "StringStruct.h"
 
 int swap_str(StringStruct* left, StringStruct* right) {
+    assert(left != nullptr);
+    assert(right != nullptr);
+    if (left == nullptr || right == nullptr) {
+        return CODE_ERROR;
+    }
+
     wchar_t* tmp = (*left).str;
     (*left).str = (*right).str;
     (*right).str = tmp;
@@ -14,6 +20,9 @@ int swap_str(StringStruct* left, StringStruct* right) {
 int wcscmp_miss_punct(const StringStruct* left, const StringStruct* right) {
     assert(left != nullptr);
     assert(right != nullptr);
+    if (left == nullptr || right == nullptr) {
+        return CODE_ERROR;
+    }
 
     size_t size_left = left->length;
     size_t size_right = right->length;
@@ -56,6 +65,9 @@ int wcscmp_miss_punct(const StringStruct* left, const StringStruct* right) {
 int rev_wcscmp_miss_punct(const StringStruct* left, const StringStruct* right) {
     assert(left != nullptr);
     assert(right != nullptr);
+    if (left == nullptr || right == nullptr) {
+        return CODE_ERROR;
+    }
 
     long long cur_symb_left = left->length - 1;
     long long cur_symb_right = right->length - 1;

@@ -9,5 +9,6 @@ struct TextStruct {
     long long num_strings = 1;
 };
 
+
 int SeparateText(TextStruct*);
 int DestructorText(TextStruct*);

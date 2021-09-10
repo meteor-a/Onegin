@@ -16,7 +16,7 @@ int SeparateText(TextStruct* text) {
         return CODE_ERROR;
     }
 
-    long long cur_size_str = (*text).text.length;
+    size_t cur_size_str = (*text).text.length;
 
     (*text).string_text = (StringStruct*)calloc(cur_size_str, sizeof(StringStruct));
     if ((*text).string_text == nullptr) {
@@ -24,8 +24,8 @@ int SeparateText(TextStruct* text) {
     }
 
     long long n_line = 0;
-    long long cur_num_symb = 0;
-    for (int num_symb = 0; num_symb < cur_size_str; ++num_symb) {
+    size_t cur_num_symb = 0;
+    for (size_t num_symb = 0; num_symb < cur_size_str; ++num_symb) {
         if ((*text).text.str[num_symb] == L'\0' || (*text).text.str[num_symb] == 65535) {
             (*text).string_text[n_line].str = ((*text).text.str + num_symb - cur_num_symb);
             (*text).string_text[n_line].length = cur_num_symb;

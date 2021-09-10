@@ -6,7 +6,7 @@
 
 struct StringStruct {
     wchar_t* str = nullptr;
-    long long length = 0;
+    size_t length = 0;
 };
 
 int swap_str(StringStruct*, StringStruct*);

@@ -4,8 +4,4 @@
 #include <stdlib.h>
 #include <assert.h>
 
-int RandomPivotPartition(StringStruct*, size_t, size_t);
-int Partition(StringStruct*, size_t, size_t);
-int QuickSort(StringStruct*, size_t, size_t);
-
-int comparator_start_str(const void*, const void*);
+int comparator(const void*, const void*);

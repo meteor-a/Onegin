@@ -17,9 +17,7 @@ int SortGenText() {
     int res_input = InputText(&text_analyze, file_text);
     SeparateText(&text_analyze);
 
-    //QuickSort(text_analyze.string_text, 0, text_analyze.num_strings - 1);
-    //(text_analyze.string_text, text_analyze.num_strings - 1);
-    qsort(text_analyze.string_text, text_analyze.num_strings, sizeof(StringStruct), comparator_start_str);
+    qsort(text_analyze.string_text, text_analyze.num_strings, sizeof(StringStruct), comparator);
 
     Output(&text_analyze);
 
@@ -34,7 +32,7 @@ int InputText(TextStruct* text_file, FILE* open_file) {
     }
 
     wchar_t ch = 0;
-    long long count_symb = 0;
+    size_t count_symb = 0;
     bool is_empty_str = true;
     while (!feof(open_file)) {
         ch = fgetwc(open_file);

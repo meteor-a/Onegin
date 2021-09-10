@@ -8,8 +8,9 @@ int comparator_start_str(const void* left, const void* right) {
     const StringStruct first = *((const StringStruct*)left);
     const StringStruct second = *((const StringStruct*)right);
 
-     return wcscmp_miss_punct(&first, &second);
-    // return wcscmp(first.str, second.str);
+     // return wcscmp_miss_punct(&first, &second);
+     // return wcscmp(first.str, second.str);
+     // return rev_wcscmp_miss_punct(&first, &second);
 }
 
 int Partition(StringStruct* input_arr, size_t left_ind, size_t right_ind) {

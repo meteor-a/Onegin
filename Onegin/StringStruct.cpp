@@ -52,3 +52,43 @@ int wcscmp_miss_punct(const StringStruct* left, const StringStruct* right) {
         return -1;
     }
 }
+
+int rev_wcscmp_miss_punct(const StringStruct* left, const StringStruct* right) {
+    assert(left != nullptr);
+    assert(right != nullptr);
+
+    long long cur_symb_left = left->length - 1;
+    long long cur_symb_right = right->length - 1;
+    while (cur_symb_left >= 0 && cur_symb_right >= 0) {
+        if (!(iswalpha(left->str[cur_symb_left]))) {
+            --cur_symb_left;
+        }
+        else if (!(iswalpha(right->str[cur_symb_right]))) {
+            --cur_symb_right;
+        }
+        else {
+            wchar_t letter_left = towlower(left->str[cur_symb_left]);
+            wchar_t letter_right = towlower(right->str[cur_symb_right]);
+
+            if (letter_left < letter_right) {
+                return -1;
+            }
+            else if (letter_left > letter_right) {
+                return 1;
+            }
+
+            --cur_symb_right;
+            --cur_symb_left;
+        }
+    }
+
+    if (cur_symb_left == 0 && cur_symb_right == 0) {
+        return 0;
+    }
+    else if (cur_symb_left > 0) {
+        return 1;
+    }
+    else {
+        return -1;
+    }
+}

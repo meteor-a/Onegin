@@ -21,6 +21,8 @@ int comparator_rev_wcscmp(const void* left, const void* right) {
 }
 
 long long partition(StringStruct* arr, long long left, long long right, int (*comp)(const void*, const void*)) {
+    assert(arr != nullptr);
+
     StringStruct pivot = arr[right];
     long long ind = (left - 1);
 
@@ -36,6 +38,9 @@ long long partition(StringStruct* arr, long long left, long long right, int (*co
 }
 
 void quickSortR(StringStruct* arr, long long left, long long right, int (*comp)(const void*, const void*)) {
+    assert(arr != nullptr);
+    assert(comp != nullptr);
+
     if (left < right) {
         long long pi = partition(arr, left, right, comp); // partitioning index
         quickSortR(arr, left, pi - 1, comp);

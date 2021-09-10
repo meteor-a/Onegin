@@ -7,7 +7,9 @@ int comparator_start_str(const void* left, const void* right) {
 
     const StringStruct first = *((const StringStruct*)left);
     const StringStruct second = *((const StringStruct*)right);
-    return wcscmp(first.str, second.str);
+
+     return wcscmp_miss_punct(&first, &second);
+    // return wcscmp(first.str, second.str);
 }
 
 int Partition(StringStruct* input_arr, size_t left_ind, size_t right_ind) {
@@ -47,5 +49,5 @@ int QuickSort(StringStruct* input_arr, size_t left_ind, size_t right_ind) {
         QuickSort(input_arr, left_ind, pindex - 1);
         QuickSort(input_arr, pindex + 1, right_ind);
     }
-    return 0;
+    return OK_RESULT;
 }

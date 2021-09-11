@@ -19,10 +19,6 @@ int SortGenText() {
     int res_input = InputText(&text_analyze, file_text);
     SeparateText(&text_analyze);
 
-    quickSortR(text_analyze.string_text, 0, text_analyze.num_strings - 1, comparator_wcscmp);
-    quickSortR(text_analyze.string_text, 0, text_analyze.num_strings - 1, comparator_rev_wcscmp);
-    //qsort(text_analyze.string_text, text_analyze.num_strings, sizeof(StringStruct), comparator);
-
     Output(&text_analyze);
 
     DestructorText(&text_analyze);
@@ -65,10 +61,66 @@ int InputText(TextStruct* text_file, FILE* open_file) {
 }
 
 int Output(TextStruct* text_file) {
-    OutputConsole(text_file);
-    int res = OutputFile(text_file, PATH_FILE_OUTPUT);
+    quickSortR((*text_file).string_text, 0, (*text_file).num_strings - 1, comparator_wcscmp);
+    OutputFile(text_file, PATH_FILE_OUTPUT, "w");
+
+    OutputSeparatorFile(200, PATH_FILE_OUTPUT, "a");
+
+    quickSortR((*text_file).string_text, 0, (*text_file).num_strings - 1, comparator_rev_wcscmp);
+    OutputFile(text_file, PATH_FILE_OUTPUT, "a");
+
+    OutputSeparatorFile(200, PATH_FILE_OUTPUT, "a");
+
+    OutputOriginText(text_file, PATH_FILE_OUTPUT, "a");
     
-    return res;
+    return OK_RESULT;
+}
+
+int OutputOriginText(TextStruct* text_file, const char* file_name, const char* type_open) {
+    assert(text_file != nullptr);
+    if (text_file == nullptr) {
+        return CODE_ERROR;
+    }
+
+    FILE* file = nullptr;
+    file = OpenFile(file_name, type_open);
+    assert(file != nullptr);
+    if (file == nullptr) {
+        return CODE_ERROR;
+    }
+
+    size_t nLines = (*text_file).text.length;
+    for (size_t num_symb = 0; num_symb < nLines; ++num_symb) {
+        if (text_file->text.str[num_symb] == '\0') {
+            putwc(L'\n', file);
+        }
+        else {
+            putwc(text_file->text.str[num_symb], file);
+        }
+    }
+
+    CloseFile(file);
+
+    return OK_RESULT;
+}
+
+int OutputSeparatorFile(int num_separator, const char* file_name, const char* type_open) {
+    FILE* file = nullptr;
+    file = OpenFile(file_name, type_open);
+    assert(file != nullptr);
+    if (file == nullptr) {
+        return CODE_ERROR;
+    }
+
+    fputws(L"\n", file);
+    for (int nSep = 0; nSep < num_separator; ++nSep) {
+        fputws(L"-", file);
+    }
+    fputws(L"\n", file);
+
+    CloseFile(file);
+
+    return OK_RESULT;
 }
 
 void OutputConsole(TextStruct* text_file) {
@@ -78,9 +130,14 @@ void OutputConsole(TextStruct* text_file) {
     }
 }
 
-int OutputFile(TextStruct* text_file, const char* file_name) {
+int OutputFile(TextStruct* text_file, const char* file_name, const char* type_open) {
+    assert(text_file != nullptr);
+    if (text_file == nullptr) {
+        return CODE_ERROR;
+    }
+
     FILE* file = nullptr;
-    file = OpenFile(file_name, "w");
+    file = OpenFile(file_name, type_open);
     assert(file != nullptr);
     if (file == nullptr) {
         return CODE_ERROR;

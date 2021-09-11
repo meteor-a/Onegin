@@ -13,6 +13,8 @@ int InputText(TextStruct*, FILE* open_file);
 
 int Output(TextStruct*);
 void OutputConsole(TextStruct*);
-int OutputFile(TextStruct*, const char*);
+int OutputFile(TextStruct*, const char*, const char*);
+int OutputSeparatorFile(int, const char*, const char*);
+int OutputOriginText(TextStruct*, const char*, const char*);
 
 void SetOutputSettings();

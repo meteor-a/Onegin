@@ -7,12 +7,12 @@ int swap_str(StringStruct* left, StringStruct* right) {
         return CODE_ERROR;
     }
 
-    wchar_t* tmp = (*left).str;
-    (*left).str = (*right).str;
-    (*right).str = tmp;
-    size_t tmp_length = (*left).length;
-    (*left).length = (*right).length;
-    (*right).length = tmp_length;
+    wchar_t* tmp = left->str;
+    left->str = right->str;
+    right->str = tmp;
+    size_t tmp_length = left->length;
+    left->length = right->length;
+    right->length = tmp_length;
 
     return OK_RESULT;
 }

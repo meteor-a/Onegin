@@ -12,3 +12,4 @@ struct TextStruct {
 
 int SeparateText(TextStruct*);
 int DestructorText(TextStruct*);
+void ConstructorText(TextStruct*);

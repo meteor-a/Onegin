@@ -58,6 +58,9 @@ int InputText(TextStruct* text_file, FILE* open_file) {
             is_empty_str = false;
         }
     }
+    text_file->text.str[count_symb] = L'\0';
+    ++count_symb;
+
     text_file->text.length = count_symb;
     text_file->num_strings = count_lines;
 

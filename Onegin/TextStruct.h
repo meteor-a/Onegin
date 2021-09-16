@@ -1,5 +1,6 @@
 #pragma once
 #include <stdlib.h>
+#include <io.h>
 #include "Constants.h"
 #include "StringStruct.h"
 

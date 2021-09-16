@@ -68,11 +68,13 @@ int InputText(TextStruct* text_file, FILE* open_file) {
 }
 
 int Output(TextStruct* text_file) {
+    //qsort(text_file->string_text, text_file->num_strings, sizeof(StringStruct), comparator_wcscmp);
     quickSortR(text_file->string_text, 0, text_file->num_strings - 1, comparator_wcscmp);
     OutputFile(text_file, PATH_FILE_OUTPUT, "w");
 
     OutputSeparatorFile(200, PATH_FILE_OUTPUT, "a");
 
+    //qsort(text_file->string_text, text_file->num_strings, sizeof(StringStruct), comparator_rev_wcscmp);
     quickSortR(text_file->string_text, 0, text_file->num_strings - 1, comparator_rev_wcscmp);
     OutputFile(text_file, PATH_FILE_OUTPUT, "a");
 

@@ -13,8 +13,8 @@ int GetMemoryForTextBuf(TextStruct* text_analyze, FILE* file);
 int InputText(TextStruct* text_file, FILE* open_file);
 
 int Output(TextStruct* text_file);
-int OutputFile(TextStruct* text_file, const char* file_name, const char* type_open);
-int OutputSeparatorFile(int num_separator, const char* file_name, const char* type_open);
-int OutputOriginText(TextStruct* text_file, const char* file_name, const char* type_open);
+int OutputFile(TextStruct* text_file, FILE* file_output);
+int OutputSeparatorFile(const wchar_t* symb_separator, int num_separator, FILE*  file_output);
+int OutputOriginText(TextStruct* text_file, FILE* file_output);
 
 void SetOutputSettings();

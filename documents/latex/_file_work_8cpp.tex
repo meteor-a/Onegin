@@ -1,0 +1,63 @@
+\hypertarget{_file_work_8cpp}{}\doxysection{D\+:/vs\+\_\+project/meteor-\/a/\+Onegin/\+Onegin/\+File\+Work.cpp File Reference}
+\label{_file_work_8cpp}\index{D:/vs\_project/meteor-\/a/Onegin/Onegin/FileWork.cpp@{D:/vs\_project/meteor-\/a/Onegin/Onegin/FileWork.cpp}}
+{\ttfamily \#include \char`\"{}File\+Work.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_file_work_8cpp_aae285d6fbb1d42caa838669b08754f05}{get\+File\+Size}} (FILE $\ast$file)
+\item 
+FILE $\ast$ \mbox{\hyperlink{_file_work_8cpp_ad6b1ed6caa3200c792b02f7deed88866}{Open\+File}} (const char $\ast$name\+\_\+file, const char $\ast$type)
+\item 
+int \mbox{\hyperlink{_file_work_8cpp_a924bda719cb59396f56e4f9d9c7717dd}{Close\+File}} (FILE $\ast$file)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_file_work_8cpp_a924bda719cb59396f56e4f9d9c7717dd}\label{_file_work_8cpp_a924bda719cb59396f56e4f9d9c7717dd}} 
+\index{FileWork.cpp@{FileWork.cpp}!CloseFile@{CloseFile}}
+\index{CloseFile@{CloseFile}!FileWork.cpp@{FileWork.cpp}}
+\doxysubsubsection{\texorpdfstring{CloseFile()}{CloseFile()}}
+{\footnotesize\ttfamily int Close\+File (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+Function to get size of file \begin{DoxyReturn}{Returns}
+0-\/ if no error 
+
+-\/9-\/ if error 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em file} & -\/ Pointer to opened file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_file_work_8cpp_aae285d6fbb1d42caa838669b08754f05}\label{_file_work_8cpp_aae285d6fbb1d42caa838669b08754f05}} 
+\index{FileWork.cpp@{FileWork.cpp}!getFileSize@{getFileSize}}
+\index{getFileSize@{getFileSize}!FileWork.cpp@{FileWork.cpp}}
+\doxysubsubsection{\texorpdfstring{getFileSize()}{getFileSize()}}
+{\footnotesize\ttfamily int get\+File\+Size (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+Function to get size of file \begin{DoxyReturn}{Returns}
+-\/ size of file in bytes 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em file} & -\/ Pointer to opened file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_file_work_8cpp_ad6b1ed6caa3200c792b02f7deed88866}\label{_file_work_8cpp_ad6b1ed6caa3200c792b02f7deed88866}} 
+\index{FileWork.cpp@{FileWork.cpp}!OpenFile@{OpenFile}}
+\index{OpenFile@{OpenFile}!FileWork.cpp@{FileWork.cpp}}
+\doxysubsubsection{\texorpdfstring{OpenFile()}{OpenFile()}}
+{\footnotesize\ttfamily FILE $\ast$ Open\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name\+\_\+file,  }\item[{const char $\ast$}]{type }\end{DoxyParamCaption})}
+
+Function to get size of file \begin{DoxyReturn}{Returns}
+pointer-\/ if file open successful 
+
+nullptr-\/ if file not open 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em name\+\_\+file} & -\/ name file \\
+\hline
+{\em type} & -\/ type open \\
+\hline
+\end{DoxyParams}

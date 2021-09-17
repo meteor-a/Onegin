@@ -1,0 +1,66 @@
+\hypertarget{_string_struct_8cpp}{}\doxysection{D\+:/vs\+\_\+project/meteor-\/a/\+Onegin/\+Onegin/\+String\+Struct.cpp File Reference}
+\label{_string_struct_8cpp}\index{D:/vs\_project/meteor-\/a/Onegin/Onegin/StringStruct.cpp@{D:/vs\_project/meteor-\/a/Onegin/Onegin/StringStruct.cpp}}
+{\ttfamily \#include \char`\"{}String\+Struct.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_string_struct_8cpp_a0d34d6ea6bfad152c1457fa9e9be2141}{swap\+\_\+str}} (\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$left, \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$right)
+\item 
+int \mbox{\hyperlink{_string_struct_8cpp_a49f4ef51a9f7c9c4ad636560a29983ff}{wcscmp\+\_\+miss\+\_\+punct}} (const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$left, const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$right)
+\item 
+int \mbox{\hyperlink{_string_struct_8cpp_a91a08465f652af5570d701b78a573463}{rev\+\_\+wcscmp\+\_\+miss\+\_\+punct}} (const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$left, const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$right)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_string_struct_8cpp_a91a08465f652af5570d701b78a573463}\label{_string_struct_8cpp_a91a08465f652af5570d701b78a573463}} 
+\index{StringStruct.cpp@{StringStruct.cpp}!rev\_wcscmp\_miss\_punct@{rev\_wcscmp\_miss\_punct}}
+\index{rev\_wcscmp\_miss\_punct@{rev\_wcscmp\_miss\_punct}!StringStruct.cpp@{StringStruct.cpp}}
+\doxysubsubsection{\texorpdfstring{rev\_wcscmp\_miss\_punct()}{rev\_wcscmp\_miss\_punct()}}
+{\footnotesize\ttfamily int rev\+\_\+wcscmp\+\_\+miss\+\_\+punct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{left,  }\item[{const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{right }\end{DoxyParamCaption})}
+
+Function for compare two \mbox{\hyperlink{struct_string_struct}{String\+Struct}} by albphabet from end \begin{DoxyReturn}{Returns}
+0-\/ if \mbox{\hyperlink{struct_string_struct}{String\+Struct}} equal 
+
+1-\/ if first string \texorpdfstring{$>$}{>} second 
+
+-\/1 -\/ if first string \texorpdfstring{$<$}{<} second 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em left} & -\/ First string \\
+\hline
+{\em right} & -\/ Second number \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_string_struct_8cpp_a0d34d6ea6bfad152c1457fa9e9be2141}\label{_string_struct_8cpp_a0d34d6ea6bfad152c1457fa9e9be2141}} 
+\index{StringStruct.cpp@{StringStruct.cpp}!swap\_str@{swap\_str}}
+\index{swap\_str@{swap\_str}!StringStruct.cpp@{StringStruct.cpp}}
+\doxysubsubsection{\texorpdfstring{swap\_str()}{swap\_str()}}
+{\footnotesize\ttfamily int swap\+\_\+str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{left,  }\item[{\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{right }\end{DoxyParamCaption})}
+
+Function for swap two \mbox{\hyperlink{struct_string_struct}{String\+Struct}} elems \begin{DoxyReturn}{Returns}
+0-\/ if no error 
+
+-\/9-\/ if error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_string_struct_8cpp_a49f4ef51a9f7c9c4ad636560a29983ff}\label{_string_struct_8cpp_a49f4ef51a9f7c9c4ad636560a29983ff}} 
+\index{StringStruct.cpp@{StringStruct.cpp}!wcscmp\_miss\_punct@{wcscmp\_miss\_punct}}
+\index{wcscmp\_miss\_punct@{wcscmp\_miss\_punct}!StringStruct.cpp@{StringStruct.cpp}}
+\doxysubsubsection{\texorpdfstring{wcscmp\_miss\_punct()}{wcscmp\_miss\_punct()}}
+{\footnotesize\ttfamily int wcscmp\+\_\+miss\+\_\+punct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{left,  }\item[{const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{right }\end{DoxyParamCaption})}
+
+Function for compare two \mbox{\hyperlink{struct_string_struct}{String\+Struct}} by albphabet from start \begin{DoxyReturn}{Returns}
+0-\/ if \mbox{\hyperlink{struct_string_struct}{String\+Struct}} equal 
+
+1-\/ if first string \texorpdfstring{$>$}{>} second 
+
+-\/1 -\/ if first string \texorpdfstring{$<$}{<} second 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em left} & -\/ First string \\
+\hline
+{\em right} & -\/ Second number \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,97 @@
+\hypertarget{_q_sort_8h}{}\doxysection{D\+:/vs\+\_\+project/meteor-\/a/\+Onegin/\+Onegin/\+QSort.h File Reference}
+\label{_q_sort_8h}\index{D:/vs\_project/meteor-\/a/Onegin/Onegin/QSort.h@{D:/vs\_project/meteor-\/a/Onegin/Onegin/QSort.h}}
+{\ttfamily \#include \char`\"{}Constants.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}String\+Struct.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_q_sort_8h_a54987bf966d1f409475f03ab3b8976b4}{comparator\+\_\+wcscmp}} (const void $\ast$left, const void $\ast$right)
+\item 
+int \mbox{\hyperlink{_q_sort_8h_a8cd05720a7b45cf15ee4800b0f24cd20}{comparator\+\_\+rev\+\_\+wcscmp}} (const void $\ast$left, const void $\ast$right)
+\item 
+long long \mbox{\hyperlink{_q_sort_8h_acef790278fb95a08ee2e120589a1e8f4}{partition}} (\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$arr, long long left, long long right, int($\ast$comp)(const void $\ast$, const void $\ast$))
+\item 
+void \mbox{\hyperlink{_q_sort_8h_a82b12ddfa901b0f4465fe2804f645453}{quick\+SortR}} (\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$arr, long long left, long long right, int($\ast$comp)(const void $\ast$, const void $\ast$))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_q_sort_8h_a8cd05720a7b45cf15ee4800b0f24cd20}\label{_q_sort_8h_a8cd05720a7b45cf15ee4800b0f24cd20}} 
+\index{QSort.h@{QSort.h}!comparator\_rev\_wcscmp@{comparator\_rev\_wcscmp}}
+\index{comparator\_rev\_wcscmp@{comparator\_rev\_wcscmp}!QSort.h@{QSort.h}}
+\doxysubsubsection{\texorpdfstring{comparator\_rev\_wcscmp()}{comparator\_rev\_wcscmp()}}
+{\footnotesize\ttfamily int comparator\+\_\+rev\+\_\+wcscmp (\begin{DoxyParamCaption}\item[{const void $\ast$}]{left,  }\item[{const void $\ast$}]{right }\end{DoxyParamCaption})}
+
+Function for compare two strings since end \begin{DoxyReturn}{Returns}
+1 -\/ if first string \texorpdfstring{$>$}{>} second by alphabet 
+
+-\/1 -\/ if first string \texorpdfstring{$<$}{<} second by alphabet 
+
+0 -\/ if first string == second by alphabet 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em left} & -\/ First string \\
+\hline
+{\em right} & -\/ Second string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_q_sort_8h_a54987bf966d1f409475f03ab3b8976b4}\label{_q_sort_8h_a54987bf966d1f409475f03ab3b8976b4}} 
+\index{QSort.h@{QSort.h}!comparator\_wcscmp@{comparator\_wcscmp}}
+\index{comparator\_wcscmp@{comparator\_wcscmp}!QSort.h@{QSort.h}}
+\doxysubsubsection{\texorpdfstring{comparator\_wcscmp()}{comparator\_wcscmp()}}
+{\footnotesize\ttfamily int comparator\+\_\+wcscmp (\begin{DoxyParamCaption}\item[{const void $\ast$}]{left,  }\item[{const void $\ast$}]{right }\end{DoxyParamCaption})}
+
+Function for compare two strings since start \begin{DoxyReturn}{Returns}
+1 -\/ if first string \texorpdfstring{$>$}{>} second by alphabet 
+
+-\/1 -\/ if first string \texorpdfstring{$<$}{<} second by alphabet 
+
+0 -\/ if first string == second by alphabet 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em left} & -\/ First string \\
+\hline
+{\em right} & -\/ Second string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_q_sort_8h_acef790278fb95a08ee2e120589a1e8f4}\label{_q_sort_8h_acef790278fb95a08ee2e120589a1e8f4}} 
+\index{QSort.h@{QSort.h}!partition@{partition}}
+\index{partition@{partition}!QSort.h@{QSort.h}}
+\doxysubsubsection{\texorpdfstring{partition()}{partition()}}
+{\footnotesize\ttfamily long long partition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{arr,  }\item[{long long}]{left,  }\item[{long long}]{right,  }\item[{int($\ast$)(const void $\ast$, const void $\ast$)}]{comp }\end{DoxyParamCaption})}
+
+Function for separate array \begin{DoxyReturn}{Returns}
+index -\/ middle index of arrays 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ Array \\
+\hline
+{\em left} & -\/ left index \\
+\hline
+{\em right} & -\/ right index \\
+\hline
+{\em comp} & -\/ compare function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_q_sort_8h_a82b12ddfa901b0f4465fe2804f645453}\label{_q_sort_8h_a82b12ddfa901b0f4465fe2804f645453}} 
+\index{QSort.h@{QSort.h}!quickSortR@{quickSortR}}
+\index{quickSortR@{quickSortR}!QSort.h@{QSort.h}}
+\doxysubsubsection{\texorpdfstring{quickSortR()}{quickSortR()}}
+{\footnotesize\ttfamily void quick\+SortR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{arr,  }\item[{long long}]{left,  }\item[{long long}]{right,  }\item[{int($\ast$)(const void $\ast$, const void $\ast$)}]{comp }\end{DoxyParamCaption})}
+
+Function for qsort arrays 
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ Array \\
+\hline
+{\em left} & -\/ left index \\
+\hline
+{\em right} & -\/ right index \\
+\hline
+{\em comp} & -\/ compare function \\
+\hline
+\end{DoxyParams}

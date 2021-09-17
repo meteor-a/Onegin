@@ -1,5 +1,8 @@
 #include "TextStruct.h"
 
+/**
+    * Destructor
+*/
 int DestructorText(TextStruct* text) {
     assert(text != nullptr);
     if (text == nullptr) {
@@ -12,6 +15,9 @@ int DestructorText(TextStruct* text) {
     return OK_RESULT;
 }
 
+/**
+    * Constructor default
+*/
 void ConstructorText(TextStruct* text_struct) {
     text_struct->string_text = nullptr;
     text_struct->num_strings = 1;
@@ -20,7 +26,12 @@ void ConstructorText(TextStruct* text_struct) {
     text_struct->text.str = nullptr;
 }
 
-int SeparateText(TextStruct* text) {
+/**
+    * Function to separate buffer text for pointers
+    * \return 0 - if no errors
+    * \return -9 - if errors
+*/
+int SeparateText(TextStruct* text/*!< - Pointer for text struct */) {
     assert(text != nullptr);
     if (text == nullptr) {
         return CODE_ERROR;

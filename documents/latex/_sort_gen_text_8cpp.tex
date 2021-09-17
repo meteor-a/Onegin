@@ -1,0 +1,113 @@
+\hypertarget{_sort_gen_text_8cpp}{}\doxysection{D\+:/vs\+\_\+project/meteor-\/a/\+Onegin/\+Onegin/\+Sort\+Gen\+Text.cpp File Reference}
+\label{_sort_gen_text_8cpp}\index{D:/vs\_project/meteor-\/a/Onegin/Onegin/SortGenText.cpp@{D:/vs\_project/meteor-\/a/Onegin/Onegin/SortGenText.cpp}}
+{\ttfamily \#include \char`\"{}Sort\+Gen\+Text.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_sort_gen_text_8cpp_a9184646f7ce5b403b11803dd4871d073}{Sort\+Gen\+Text}} (const char $\ast$file\+\_\+name)
+\item 
+int \mbox{\hyperlink{_sort_gen_text_8cpp_acabe3db89a654f90391ba3ea76327a15}{Get\+Memory\+For\+Text\+Buf}} (\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$text\+\_\+analyze, FILE $\ast$file)
+\item 
+int \mbox{\hyperlink{_sort_gen_text_8cpp_a8fb149783f95ab1fabba899c3c771b95}{Input\+Text}} (\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$text\+\_\+file, FILE $\ast$open\+\_\+file)
+\item 
+int \mbox{\hyperlink{_sort_gen_text_8cpp_ac3569c9a5e6e1d0ce88f96a91b8c7492}{Output}} (\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$text\+\_\+file)
+\item 
+int \mbox{\hyperlink{_sort_gen_text_8cpp_aeac34e01f72db1f8be54883a47fef16f}{Output\+Origin\+Text}} (\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$text\+\_\+file, FILE $\ast$file\+\_\+output)
+\item 
+int \mbox{\hyperlink{_sort_gen_text_8cpp_aa4fa17193b9a0d6c0e73dabdecfc7d1c}{Output\+Separator\+File}} (const wchar\+\_\+t $\ast$symb\+\_\+separ, int num\+\_\+separator, FILE $\ast$file\+\_\+output)
+\item 
+int \mbox{\hyperlink{_sort_gen_text_8cpp_ae44bcaac304bbd00aa082c1d1690007e}{Output\+File}} (\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$text\+\_\+file, FILE $\ast$file\+\_\+output)
+\item 
+void \mbox{\hyperlink{_sort_gen_text_8cpp_a73c96e2e2dff51f87f11f428a83f8d41}{Set\+Output\+Settings}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_sort_gen_text_8cpp_acabe3db89a654f90391ba3ea76327a15}\label{_sort_gen_text_8cpp_acabe3db89a654f90391ba3ea76327a15}} 
+\index{SortGenText.cpp@{SortGenText.cpp}!GetMemoryForTextBuf@{GetMemoryForTextBuf}}
+\index{GetMemoryForTextBuf@{GetMemoryForTextBuf}!SortGenText.cpp@{SortGenText.cpp}}
+\doxysubsubsection{\texorpdfstring{GetMemoryForTextBuf()}{GetMemoryForTextBuf()}}
+{\footnotesize\ttfamily int Get\+Memory\+For\+Text\+Buf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$}]{text\+\_\+analyze,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+Function for calloc memory for buffer \begin{DoxyReturn}{Returns}
+0-\/ if no error 
+
+-\/9-\/ if error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_sort_gen_text_8cpp_a8fb149783f95ab1fabba899c3c771b95}\label{_sort_gen_text_8cpp_a8fb149783f95ab1fabba899c3c771b95}} 
+\index{SortGenText.cpp@{SortGenText.cpp}!InputText@{InputText}}
+\index{InputText@{InputText}!SortGenText.cpp@{SortGenText.cpp}}
+\doxysubsubsection{\texorpdfstring{InputText()}{InputText()}}
+{\footnotesize\ttfamily int Input\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$}]{text\+\_\+file,  }\item[{FILE $\ast$}]{open\+\_\+file }\end{DoxyParamCaption})}
+
+Function for read text from file \begin{DoxyReturn}{Returns}
+0-\/ if no error 
+
+-\/9-\/ if error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_sort_gen_text_8cpp_ac3569c9a5e6e1d0ce88f96a91b8c7492}\label{_sort_gen_text_8cpp_ac3569c9a5e6e1d0ce88f96a91b8c7492}} 
+\index{SortGenText.cpp@{SortGenText.cpp}!Output@{Output}}
+\index{Output@{Output}!SortGenText.cpp@{SortGenText.cpp}}
+\doxysubsubsection{\texorpdfstring{Output()}{Output()}}
+{\footnotesize\ttfamily int Output (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$}]{text\+\_\+file }\end{DoxyParamCaption})}
+
+Function for sort and output string in some order in output.\+txt \begin{DoxyReturn}{Returns}
+0-\/ if no error 
+
+-\/9-\/ if error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_sort_gen_text_8cpp_ae44bcaac304bbd00aa082c1d1690007e}\label{_sort_gen_text_8cpp_ae44bcaac304bbd00aa082c1d1690007e}} 
+\index{SortGenText.cpp@{SortGenText.cpp}!OutputFile@{OutputFile}}
+\index{OutputFile@{OutputFile}!SortGenText.cpp@{SortGenText.cpp}}
+\doxysubsubsection{\texorpdfstring{OutputFile()}{OutputFile()}}
+{\footnotesize\ttfamily int Output\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$}]{text\+\_\+file,  }\item[{FILE $\ast$}]{file\+\_\+output }\end{DoxyParamCaption})}
+
+Function for output sorted text in output.\+txt \begin{DoxyReturn}{Returns}
+0-\/ if no error 
+
+-\/9-\/ if error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_sort_gen_text_8cpp_aeac34e01f72db1f8be54883a47fef16f}\label{_sort_gen_text_8cpp_aeac34e01f72db1f8be54883a47fef16f}} 
+\index{SortGenText.cpp@{SortGenText.cpp}!OutputOriginText@{OutputOriginText}}
+\index{OutputOriginText@{OutputOriginText}!SortGenText.cpp@{SortGenText.cpp}}
+\doxysubsubsection{\texorpdfstring{OutputOriginText()}{OutputOriginText()}}
+{\footnotesize\ttfamily int Output\+Origin\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$}]{text\+\_\+file,  }\item[{FILE $\ast$}]{file\+\_\+output }\end{DoxyParamCaption})}
+
+Function for output original text in output.\+txt \begin{DoxyReturn}{Returns}
+0-\/ if no error 
+
+-\/9-\/ if error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_sort_gen_text_8cpp_aa4fa17193b9a0d6c0e73dabdecfc7d1c}\label{_sort_gen_text_8cpp_aa4fa17193b9a0d6c0e73dabdecfc7d1c}} 
+\index{SortGenText.cpp@{SortGenText.cpp}!OutputSeparatorFile@{OutputSeparatorFile}}
+\index{OutputSeparatorFile@{OutputSeparatorFile}!SortGenText.cpp@{SortGenText.cpp}}
+\doxysubsubsection{\texorpdfstring{OutputSeparatorFile()}{OutputSeparatorFile()}}
+{\footnotesize\ttfamily int Output\+Separator\+File (\begin{DoxyParamCaption}\item[{const wchar\+\_\+t $\ast$}]{symb\+\_\+separ,  }\item[{int}]{num\+\_\+separator,  }\item[{FILE $\ast$}]{file\+\_\+output }\end{DoxyParamCaption})}
+
+Function for output separator beetween two texts in output.\+txt \begin{DoxyReturn}{Returns}
+0-\/ if no error 
+
+-\/9-\/ if error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_sort_gen_text_8cpp_a73c96e2e2dff51f87f11f428a83f8d41}\label{_sort_gen_text_8cpp_a73c96e2e2dff51f87f11f428a83f8d41}} 
+\index{SortGenText.cpp@{SortGenText.cpp}!SetOutputSettings@{SetOutputSettings}}
+\index{SetOutputSettings@{SetOutputSettings}!SortGenText.cpp@{SortGenText.cpp}}
+\doxysubsubsection{\texorpdfstring{SetOutputSettings()}{SetOutputSettings()}}
+{\footnotesize\ttfamily void Set\+Output\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Function for set default configs of output unicode \mbox{\Hypertarget{_sort_gen_text_8cpp_a9184646f7ce5b403b11803dd4871d073}\label{_sort_gen_text_8cpp_a9184646f7ce5b403b11803dd4871d073}} 
+\index{SortGenText.cpp@{SortGenText.cpp}!SortGenText@{SortGenText}}
+\index{SortGenText@{SortGenText}!SortGenText.cpp@{SortGenText.cpp}}
+\doxysubsubsection{\texorpdfstring{SortGenText()}{SortGenText()}}
+{\footnotesize\ttfamily int Sort\+Gen\+Text (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+Function for read, sort and out\mbox{[}ut text from file \begin{DoxyReturn}{Returns}
+0-\/ if no error 
+
+-\/9-\/ if error 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & -\/ File name \\
+\hline
+\end{DoxyParams}

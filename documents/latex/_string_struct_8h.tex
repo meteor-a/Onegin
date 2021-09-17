@@ -1,0 +1,74 @@
+\hypertarget{_string_struct_8h}{}\doxysection{D\+:/vs\+\_\+project/meteor-\/a/\+Onegin/\+Onegin/\+String\+Struct.h File Reference}
+\label{_string_struct_8h}\index{D:/vs\_project/meteor-\/a/Onegin/Onegin/StringStruct.h@{D:/vs\_project/meteor-\/a/Onegin/Onegin/StringStruct.h}}
+{\ttfamily \#include $<$wchar.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Constants.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_string_struct}{String\+Struct}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_string_struct_8h_a0d34d6ea6bfad152c1457fa9e9be2141}{swap\+\_\+str}} (\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$left, \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$right)
+\item 
+int \mbox{\hyperlink{_string_struct_8h_a49f4ef51a9f7c9c4ad636560a29983ff}{wcscmp\+\_\+miss\+\_\+punct}} (const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$left, const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$right)
+\item 
+int \mbox{\hyperlink{_string_struct_8h_a91a08465f652af5570d701b78a573463}{rev\+\_\+wcscmp\+\_\+miss\+\_\+punct}} (const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$left, const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$right)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_string_struct_8h_a91a08465f652af5570d701b78a573463}\label{_string_struct_8h_a91a08465f652af5570d701b78a573463}} 
+\index{StringStruct.h@{StringStruct.h}!rev\_wcscmp\_miss\_punct@{rev\_wcscmp\_miss\_punct}}
+\index{rev\_wcscmp\_miss\_punct@{rev\_wcscmp\_miss\_punct}!StringStruct.h@{StringStruct.h}}
+\doxysubsubsection{\texorpdfstring{rev\_wcscmp\_miss\_punct()}{rev\_wcscmp\_miss\_punct()}}
+{\footnotesize\ttfamily int rev\+\_\+wcscmp\+\_\+miss\+\_\+punct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{left,  }\item[{const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{right }\end{DoxyParamCaption})}
+
+Function for compare two \mbox{\hyperlink{struct_string_struct}{String\+Struct}} by albphabet from end \begin{DoxyReturn}{Returns}
+0-\/ if \mbox{\hyperlink{struct_string_struct}{String\+Struct}} equal 
+
+1-\/ if first string \texorpdfstring{$>$}{>} second 
+
+-\/1 -\/ if first string \texorpdfstring{$<$}{<} second 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em left} & -\/ First string \\
+\hline
+{\em right} & -\/ Second number \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_string_struct_8h_a0d34d6ea6bfad152c1457fa9e9be2141}\label{_string_struct_8h_a0d34d6ea6bfad152c1457fa9e9be2141}} 
+\index{StringStruct.h@{StringStruct.h}!swap\_str@{swap\_str}}
+\index{swap\_str@{swap\_str}!StringStruct.h@{StringStruct.h}}
+\doxysubsubsection{\texorpdfstring{swap\_str()}{swap\_str()}}
+{\footnotesize\ttfamily int swap\+\_\+str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{left,  }\item[{\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{right }\end{DoxyParamCaption})}
+
+Function for swap two \mbox{\hyperlink{struct_string_struct}{String\+Struct}} elems \begin{DoxyReturn}{Returns}
+0-\/ if no error 
+
+-\/9-\/ if error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_string_struct_8h_a49f4ef51a9f7c9c4ad636560a29983ff}\label{_string_struct_8h_a49f4ef51a9f7c9c4ad636560a29983ff}} 
+\index{StringStruct.h@{StringStruct.h}!wcscmp\_miss\_punct@{wcscmp\_miss\_punct}}
+\index{wcscmp\_miss\_punct@{wcscmp\_miss\_punct}!StringStruct.h@{StringStruct.h}}
+\doxysubsubsection{\texorpdfstring{wcscmp\_miss\_punct()}{wcscmp\_miss\_punct()}}
+{\footnotesize\ttfamily int wcscmp\+\_\+miss\+\_\+punct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{left,  }\item[{const \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{right }\end{DoxyParamCaption})}
+
+Function for compare two \mbox{\hyperlink{struct_string_struct}{String\+Struct}} by albphabet from start \begin{DoxyReturn}{Returns}
+0-\/ if \mbox{\hyperlink{struct_string_struct}{String\+Struct}} equal 
+
+1-\/ if first string \texorpdfstring{$>$}{>} second 
+
+-\/1 -\/ if first string \texorpdfstring{$<$}{<} second 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em left} & -\/ First string \\
+\hline
+{\em right} & -\/ Second number \\
+\hline
+\end{DoxyParams}

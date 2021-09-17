@@ -8,7 +8,7 @@
 #include "Constants.h"
 
 
-int SortGenText();
+int SortGenText(const char* file_name);
 int GetMemoryForTextBuf(TextStruct* text_analyze, FILE* file);
 int InputText(TextStruct* text_file, FILE* open_file);
 

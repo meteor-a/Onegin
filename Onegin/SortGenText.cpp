@@ -1,9 +1,9 @@
 #include "SortGenText.h"
 
-int SortGenText() {
+int SortGenText(const char* file_name) {
     SetOutputSettings();
 
-    FILE* file_text = OpenFile(PATH_FILE_ONEGIN, "r");
+    FILE* file_text = OpenFile(file_name, "r");
     assert(file_text != nullptr);
     if (file_text == nullptr) {
         return CODE_ERROR;
@@ -26,7 +26,7 @@ int SortGenText() {
 
 int GetMemoryForTextBuf(TextStruct* text_analyze, FILE* file) {
     text_analyze->text.str = (wchar_t*)calloc(getFileSize(file) + 1, sizeof(wchar_t));
-    assert(text_analyze.text.str != nullptr);
+    assert(text_analyze->text.str != nullptr);
     if (text_analyze->text.str == nullptr) {
         return CODE_ERROR;
     }

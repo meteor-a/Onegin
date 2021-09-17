@@ -9,6 +9,6 @@ struct StringStruct {
     size_t length = 0;
 };
 
-int swap_str(StringStruct*, StringStruct*);
-int wcscmp_miss_punct(const StringStruct*, const StringStruct*);
-int rev_wcscmp_miss_punct(const StringStruct*, const StringStruct*);
+int swap_str(StringStruct* left, StringStruct* right);
+int wcscmp_miss_punct(const StringStruct* left, const StringStruct* right);
+int rev_wcscmp_miss_punct(const StringStruct* left, const StringStruct* right);

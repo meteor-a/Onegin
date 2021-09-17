@@ -9,12 +9,12 @@
 
 
 int SortGenText();
-int InputText(TextStruct*, FILE* open_file);
+int GetMemoryForTextBuf(TextStruct* text_analyze, FILE* file);
+int InputText(TextStruct* text_file, FILE* open_file);
 
-int Output(TextStruct*);
-void OutputConsole(TextStruct*);
-int OutputFile(TextStruct*, const char*, const char*);
-int OutputSeparatorFile(int, const char*, const char*);
-int OutputOriginText(TextStruct*, const char*, const char*);
+int Output(TextStruct* text_file);
+int OutputFile(TextStruct* text_file, const char* file_name, const char* type_open);
+int OutputSeparatorFile(int num_separator, const char* file_name, const char* type_open);
+int OutputOriginText(TextStruct* text_file, const char* file_name, const char* type_open);
 
 void SetOutputSettings();

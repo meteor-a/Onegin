@@ -9,13 +9,10 @@ int SortGenText() {
         return CODE_ERROR;
     }
 
-    TextStruct text_analyze;
+    TextStruct text_analyze{};
+
     ConstructorText(&text_analyze);
-    text_analyze.text.str = (wchar_t*)calloc(getFileSize(file_text), sizeof(wchar_t));
-    assert(text_analyze.text.str != nullptr);
-    if (text_analyze.text.str == nullptr) {
-        return CODE_ERROR;
-    }
+    GetMemoryForTextBuf(&text_analyze, file_text);
 
     int res_input = InputText(&text_analyze, file_text);
     SeparateText(&text_analyze);
@@ -23,6 +20,16 @@ int SortGenText() {
     Output(&text_analyze);
 
     DestructorText(&text_analyze);
+
+    return OK_RESULT;
+}
+
+int GetMemoryForTextBuf(TextStruct* text_analyze, FILE* file) {
+    text_analyze->text.str = (wchar_t*)calloc(getFileSize(file) + 1, sizeof(wchar_t));
+    assert(text_analyze.text.str != nullptr);
+    if (text_analyze->text.str == nullptr) {
+        return CODE_ERROR;
+    }
 
     return OK_RESULT;
 }
@@ -74,8 +81,8 @@ int Output(TextStruct* text_file) {
 
     OutputSeparatorFile(200, PATH_FILE_OUTPUT, "a");
 
-    //qsort(text_file->string_text, text_file->num_strings, sizeof(StringStruct), comparator_rev_wcscmp);
-    quickSortR(text_file->string_text, 0, text_file->num_strings - 1, comparator_rev_wcscmp);
+    qsort(text_file->string_text, text_file->num_strings, sizeof(StringStruct), comparator_rev_wcscmp);
+    //quickSortR(text_file->string_text, 0, text_file->num_strings - 1, comparator_rev_wcscmp);
     OutputFile(text_file, PATH_FILE_OUTPUT, "a");
 
     OutputSeparatorFile(200, PATH_FILE_OUTPUT, "a");
@@ -132,21 +139,13 @@ int OutputSeparatorFile(int num_separator, const char* file_name, const char* ty
     return OK_RESULT;
 }
 
-void OutputConsole(TextStruct* text_file) {
-    long long nLines = text_file->num_strings;
-    for (int num_str = 0; num_str < nLines; ++num_str) {
-        wprintf(L"%s \n", text_file->string_text[num_str].str);
-    }
-}
-
 int OutputFile(TextStruct* text_file, const char* file_name, const char* type_open) {
     assert(text_file != nullptr);
     if (text_file == nullptr) {
         return CODE_ERROR;
     }
 
-    FILE* file = nullptr;
-    file = OpenFile(file_name, type_open);
+    FILE* file = OpenFile(file_name, type_open);
     assert(file != nullptr);
     if (file == nullptr) {
         return CODE_ERROR;
@@ -164,7 +163,7 @@ int OutputFile(TextStruct* text_file, const char* file_name, const char* type_op
 }
 
 void SetOutputSettings() {
-    setlocale(LC_ALL, "Rus");
+    _wsetlocale(LC_ALL, L"Rus");
 
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);

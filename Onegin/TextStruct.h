@@ -1,6 +1,7 @@
 #pragma once
 #include <stdlib.h>
 #include <io.h>
+#include "FileWork.h"
 #include "Constants.h"
 #include "StringStruct.h"
 
@@ -11,6 +12,6 @@ struct TextStruct {
 };
 
 
-int SeparateText(TextStruct*);
-int DestructorText(TextStruct*);
-void ConstructorText(TextStruct*);
+int SeparateText(TextStruct* text);
+int DestructorText(TextStruct* text);
+void ConstructorText(TextStruct* text_struct);
